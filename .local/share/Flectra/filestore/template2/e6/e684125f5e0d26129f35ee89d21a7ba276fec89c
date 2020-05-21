@@ -1,0 +1,51 @@
+
+.o_list_view > thead,
+.o_list_view tfoot {
+  background-color: #ffffff;
+}
+.o_list_view tbody > tr.o_group_header {
+  background-color: #f1f3f6;
+  background-image: none;
+  border-bottom: 2px solid #ffffff;
+}
+.o_list_view > tfoot {
+  border-top: 0;
+}
+@media print {
+  .o_list_view thead th.o_column_sortable {
+    position: unset;
+  }
+  .o_list_view tfoot {
+    border: 0;
+    display: table-footer-group;
+  }
+  .o_list_view .o_list_record_selector .o_checkbox {
+    display: none;
+  }
+}
+.o_list_view .o_group_pager {
+  cursor: text;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: right;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.o_list_view .o_group_pager .o_pager_counter {
+  white-space: nowrap;
+}
+.o_list_view .o_group_pager .o_pager_previous,
+.o_list_view .o_group_pager .o_pager_next {
+  color: #657248;
+  padding: 0 5px;
+  margin: 0 0 4px 4px;
+}
+.o_list_view .o_group_pager .o_pager_previous:hover,
+.o_list_view .o_group_pager .o_pager_next:hover {
+  color: #495334;
+}
+.o_list_view .o-sort-up.o_column_sortable:after {
+  opacity: 0;
+}

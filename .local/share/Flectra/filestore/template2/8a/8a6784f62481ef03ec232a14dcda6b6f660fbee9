@@ -1,0 +1,174 @@
+
+/* Common */
+.o_mail_activity.o_field_widget {
+  display: block;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed {
+  border-bottom-style: dashed;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"] {
+  cursor: pointer;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"] .o_chatter_planned_activities_summary {
+  display: none;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed {
+  margin-bottom: 0;
+  -webkit-transition: margin 0.8s ease 0s;
+  -moz-transition: margin 0.8s ease 0s;
+  -o-transition: margin 0.8s ease 0s;
+  transition: margin 0.8s ease 0s;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed .o_chatter_planned_activities_summary {
+  display: inline-block;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed .o_chatter_planned_activities_summary span {
+  padding: 0 5px;
+  border-radius: 100%;
+  font-size: 11px;
+}
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed i.fa-caret-down:before {
+  content: '\f0da';
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack {
+  position: relative;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack img {
+  width: 31px;
+  height: 31px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack .o_avatar_icon {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  padding: 6px 5px;
+  text-align: center;
+  line-height: 1.2;
+  color: white;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info {
+  vertical-align: baseline;
+  padding: 4px 6px;
+  background: #f1f3f6;
+  border-radius: 2px 2px 0 0;
+  opacity: 1;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info:hover,
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info:focus,
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.focus {
+  opacity: 1;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed {
+  opacity: 0.5;
+  background: transparent;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed:hover,
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed:focus,
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed.focus {
+  opacity: 1;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.well {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.well dt {
+  max-width: 80px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.well dd {
+  margin-left: 95px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_note {
+  margin: 2px 0 5px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_tools .o_activity_link {
+  padding: 0 12px;
+}
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_tools .o_activity_done {
+  padding-left: 0;
+}
+.o_mail_activity .o_thread_message_core.o_mail_note {
+  padding: 0px 3px;
+}
+.o_mail_activity .o_activity_color_default {
+  color: #dddddd;
+}
+.o_mail_activity .o_activity_color_planned {
+  color: #789a58;
+}
+.o_mail_activity .o_activity_color_overdue {
+  color: #b25757;
+}
+.o_mail_activity .o_activity_color_today {
+  color: #e39573;
+}
+/* Feedback popover (form view) */
+.o_mail_activity_feedback {
+  max-width: 410px;
+  outline: none;
+}
+.o_mail_activity_feedback textarea {
+  min-width: 250px;
+}
+/* Kanban View */
+.o_kanban_record .o_kanban_inline_block {
+  display: inline-block;
+}
+.o_kanban_record .o_mail_activity .o_activity_btn span.fa {
+  overflow: visible;
+  line-height: 1;
+  vertical-align: middle;
+}
+.o_kanban_record .o_mail_activity .o_activity_link_kanban {
+  visibility: hidden;
+}
+.o_kanban_record .o_mail_activity ul.o_activity {
+  width: 290px;
+}
+.o_kanban_record .o_mail_activity ul.o_activity > li:last-child {
+  background-color: #e2e2e0;
+  color: #333333;
+  line-height: 3em;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log {
+  max-height: 300px;
+  overflow-y: auto;
+  color: #4c4c4c;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li {
+  width: 100%;
+  display: inline-block;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li.o_activity_label {
+  line-height: 2.5em;
+  padding: 0px 5px;
+  background-color: #e2e2e0;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li.o_schedule_activity {
+  padding: 8px 10px 8px 0px;
+  vertical-align: middle;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li.o_schedule_activity:hover {
+  background-color: #f1f3f6;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li.o_schedule_activity:hover .o_activity_link_kanban {
+  visibility: visible;
+}
+.o_kanban_record .o_mail_activity ul.o_activity li > ul.o_activity_log li.o_schedule_activity .o_activity_title {
+  width: 85%;
+  padding: 0px 5px 0px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.o_kanban_record .o_mail_activity ul.o_activity .o_no_activity {
+  padding: 10px;
+  cursor: initial;
+}

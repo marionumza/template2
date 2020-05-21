@@ -1,0 +1,261 @@
+
+.o_form_view {
+  background-color: #f1f3f6;
+}
+.o_form_view .o_control_panel .o_panel .o_setting_search input {
+  background-color: transparent;
+}
+.o_form_view .o_form_sheet_bg {
+  background: transparent;
+}
+.o_form_view .o_form_sheet_bg .o_form_sheet {
+  min-width: unset;
+  max-width: 1024px;
+}
+.o_form_view .o_form_sheet_bg .o_form_sheet .oe_title {
+  width: auto;
+}
+.o_form_view .o_form_sheet_bg .o_form_sheet .oe_button_box {
+  width: 100%;
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .o_form_view .o_form_sheet_bg .o_form_sheet {
+    margin: 24px 10px;
+  }
+}
+@media (max-width: 991px) {
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr {
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr td,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr td {
+    -ms-flex: 1 0 auto;
+    -moz-flex: 1 0 auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    max-width: 100%;
+    width: auto !important;
+    display: block;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr td.o_td_label,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr td.o_td_label {
+    width: 90% !important;
+    border: none;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr td .o_input_dropdown,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr td .o_input_dropdown {
+    width: auto;
+    max-width: 100%;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr td .o_field_widget.o_field_many2one.o_with_button,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr td .o_field_widget.o_field_many2one.o_with_button {
+    display: flex;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr .o_td_label + td,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr .o_td_label + td {
+    padding: 3px 5px 3px 5px;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6 tr .o_field_widget.o_text_overflow,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group tr .o_field_widget.o_text_overflow {
+    width: auto !important;
+  }
+}
+@media print {
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_group_col_6,
+  .o_form_view .o_form_sheet_bg .o_form_sheet .o_inner_group {
+    width: 50%;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .nav.nav-tabs.hidden-xs {
+    display: block !important;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .nav.nav-tabs.hidden-xs .tab-pane {
+    display: block;
+    min-height: auto;
+  }
+}
+@media print {
+  .o_form_view .o_form_sheet_bg .o_form_sheet {
+    border: 0 !important;
+  }
+  .o_form_view .o_form_sheet_bg .o_form_sheet .nav-tabs {
+    border: 0 !important;
+  }
+}
+.o_form_view .o_form_sheet_bg .oe_button_box .oe_stat_button .o_button_icon {
+  color: #657248;
+}
+.o_form_view .o_form_sheet_bg .oe_button_box .oe_stat_button:hover {
+  color: #4c4c4c;
+}
+@media print {
+  .o_form_view .o_form_sheet_bg {
+    border: 0 !important;
+  }
+}
+.o_form_view .o_form_statusbar {
+  min-height: 34px;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button {
+  background-color: #ffffff;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.disabled {
+  background-color: #ffffff;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button:before,
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button:after {
+  border-left: 11px solid #ffffff;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button:before {
+  right: -11px;
+  border-left-color: #E5E5E5;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled {
+  color: #657248;
+  background-color: #f3f4f0;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled:after {
+  border-left-color: #f3f4f0;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > ul > li > .btn-default {
+  color: #777777;
+  background-color: #ffffff;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > ul > li > .btn-default:hover {
+  color: #657248;
+  background-color: #f1f3f6;
+}
+.o_form_view .oe_chatter {
+  background-color: #ffffff;
+  min-width: unset;
+  max-width: 1024px;
+}
+.o_form_view .oe_chatter .o_mail_activity .o_thread_date:hover {
+  color: inherit;
+}
+.o_form_view .o_input,
+.o_form_view .o_input .o_input {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #4c4c4c;
+  background-position: center bottom, center calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0 2px, 100% 1px;
+  transition: background 0s ease-out 0s;
+  padding: 3px 0;
+}
+.o_form_view .o_input:focus,
+.o_form_view .o_input .o_input:focus,
+.o_form_view .o_input.focus,
+.o_form_view .o_input .o_input.focus {
+  background-image: linear-gradient(#657248, #657248), linear-gradient(#d9d9d9, #d9d9d9);
+  border: 0 none !important;
+  border-radius: 0;
+  box-shadow: none;
+  float: none;
+  background-size: 100% 2px, 100% 1px;
+  outline: 0 none;
+  transition-duration: 0.4s;
+}
+.o_form_view .o_required_modifier.o_input,
+.o_form_view .o_required_modifier .o_input {
+  background-color: transparent !important;
+  border-bottom: 3px solid #4c4c4c;
+}
+.o_form_view .o_required_modifier.o_input:focus,
+.o_form_view .o_required_modifier .o_input:focus,
+.o_form_view .o_required_modifier.o_input.focus,
+.o_form_view .o_required_modifier .o_input.focus {
+  background-size: 100% 3px, 100% 1px;
+}
+@media (max-width: 991px) {
+  .modal-dialog .modal-content .o_form_view .o_group_col_6,
+  .modal-dialog .modal-content .o_form_view .o_inner_group {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr {
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr td,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr td {
+    -ms-flex: 1 0 auto;
+    -moz-flex: 1 0 auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    max-width: 100%;
+    width: auto !important;
+    display: block;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr td.o_td_label,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr td.o_td_label {
+    width: 90% !important;
+    border: none;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr td .o_input_dropdown,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr td .o_input_dropdown {
+    width: auto;
+    max-width: 100%;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr td .o_field_widget.o_field_many2one.o_with_button,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr td .o_field_widget.o_field_many2one.o_with_button {
+    display: flex;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr .o_td_label + td,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr .o_td_label + td {
+    padding: 3px 5px 3px 5px;
+  }
+  .modal-dialog .modal-content .o_form_view .o_group_col_6 tr .o_field_widget.o_text_overflow,
+  .modal-dialog .modal-content .o_form_view .o_inner_group tr .o_field_widget.o_text_overflow {
+    width: auto !important;
+  }
+}
+@media print {
+  .modal-dialog .modal-content .o_form_view .o_group_col_6,
+  .modal-dialog .modal-content .o_form_view .o_inner_group {
+    width: 50%;
+  }
+  .modal-dialog .modal-content .o_form_view .nav.nav-tabs.hidden-xs {
+    display: block !important;
+  }
+  .modal-dialog .modal-content .o_form_view .nav.nav-tabs.hidden-xs .tab-pane {
+    display: block;
+    min-height: auto;
+  }
+}
+@media print {
+  .modal-dialog .modal-content .o_form_view {
+    border: 0 !important;
+  }
+  .modal-dialog .modal-content .o_form_view .nav-tabs {
+    border: 0 !important;
+  }
+}

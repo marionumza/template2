@@ -1,0 +1,151 @@
+
+body {
+  width: 100%;
+  height: 100%;
+}
+body .o_main_content {
+  overflow: auto;
+}
+@media (max-width: 991px) {
+  body {
+    overflow: inherit;
+  }
+  body .o_main .oe-view-manager {
+    overflow: inherit;
+  }
+}
+body a {
+  text-decoration: none !important;
+}
+@media print {
+  body {
+    overflow: auto !important;
+    display: block !important;
+  }
+  body .o_main {
+    display: block !important;
+  }
+  body .o_main .o_main_content {
+    display: block !important;
+    overflow: visible !important;
+  }
+  body .o_main .o_main_content .o_content {
+    overflow: visible !important;
+  }
+}
+.o_web_client {
+  background-color: #ffffff;
+}
+main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+ > label {
+  color: rgba(51, 51, 51, 0.66) !important;
+}
+.btn {
+  border-radius: 0 !important;
+}
+.badge {
+  border-radius: 0;
+}
+.o_tooltip {
+  border-color: #657248;
+  background-color: #657248;
+}
+.o_tooltip.right::before {
+  border-right-color: #657248;
+}
+.o_tooltip.top::before {
+  border-top-color: #657248;
+}
+.o_tooltip.left::before {
+  border-left-color: #657248;
+}
+.o_tooltip.bottom::before {
+  border-bottom-color: #657248;
+}
+.o_tooltip::after {
+  border-color: #657248;
+  background: radial-gradient(#788856, #657248);
+}
+.o_tooltip.active.right::before {
+  border-right-color: #657248;
+}
+.o_tooltip.active.top::before {
+  border-top-color: #657248;
+}
+.o_tooltip.active.left::before {
+  border-left-color: #657248;
+}
+.o_tooltip.active.bottom::before {
+  border-bottom-color: #657248;
+}
+div.o_checkbox {
+  display: inline-block;
+  position: relative;
+  vertical-align: sub;
+}
+div.o_checkbox > input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  cursor: pointer;
+}
+div.o_checkbox > input + span {
+  background-color: #fff;
+  border-radius: 1px;
+  border: 1px solid rgba(120, 130, 140, 0.75);
+  content: "";
+  display: inline-block;
+  height: 17px;
+  transition: 0.3s ease-in-out;
+  width: 17px;
+  outline: none;
+}
+div.o_checkbox > input:checked + span {
+  background-repeat: no-repeat;
+  background: #657248 url(/web/static/src/img/checked.svg);
+  background-position: center center;
+}
+div.o_checkbox > input:disabled + span {
+  opacity: 0.7;
+  border: 1px solid #e2e2e0;
+}
+div.o_checkbox > input:focus + span {
+  outline: 1px solid #657248;
+}
+@media print {
+  .o_checkbox input[type="checkbox"] {
+    opacity: 1 !important;
+  }
+  .o_checkbox input:disabled + span {
+    opacity: 0 !important;
+  }
+  .o_kanban_view {
+    display: block;
+  }
+  .o_kanban_view .o_kanban_record {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .o_pivot {
+    overflow: unset !important;
+  }
+  .o_graph {
+    height: 500px !important;
+  }
+}
+.o_dialog_error.modal-body .alert {
+  color: #8a6d3b;
+}
+.o_field_widget.o_field_many2one .o_external_button {
+  color: #657248;
+}

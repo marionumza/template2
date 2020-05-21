@@ -1,0 +1,17 @@
+
+.o_searchview {
+  border: none;
+  background-color: transparent;
+}
+.o_searchview > .o_searchview_facet > .o_searchview_facet_label {
+  color: #657248;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.o_searchview > .o_searchview_facet > .o_facet_values {
+  background-color: #ffffff;
+}
+.o_searchview > .o_searchview_input {
+  border-bottom: 1px solid #4c4c4c;
+  background-color: transparent;
+}

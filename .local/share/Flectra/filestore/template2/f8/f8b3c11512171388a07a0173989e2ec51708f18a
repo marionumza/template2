@@ -1,0 +1,18 @@
+
+.o_field_copy {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  color: #657248;
+  font-weight: normal;
+  text-align: center;
+}
+.o_field_copy .o_clipboard_button.o_btn_text_copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.o_field_copy .o_clipboard_button.o_btn_char_copy {
+  padding-top: 2px;
+}

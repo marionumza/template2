@@ -1,0 +1,31 @@
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban:not(.o_kanban_nocontent) .o_account_dashboard_header {
+  margin: -8px -8px 8px;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header {
+  -ms-flex: 1 0 100%;
+  -moz-flex: 1 0 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+  background-color: white;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header h4 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .fa-gift {
+  color: #eeeeee;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .fa-gift:hover {
+  color: #555555;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-default {
+  color: #333333;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-default.o_action_done {
+  color: #777777;
+}
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-default.o_action_done .fa-check {
+  color: #789a58;
+}

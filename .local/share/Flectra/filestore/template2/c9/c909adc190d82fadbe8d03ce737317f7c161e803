@@ -1,0 +1,69 @@
+
+.o_boxed_footer,
+.o_boxed_header,
+.o_report_layout_boxed {
+  font-family: 'Lato';
+  color: #555555;
+  font-size: 12px;
+}
+.o_boxed_header {
+  border-bottom: 1px solid #eeeeee;
+}
+.o_boxed_header img {
+  max-height: 100px;
+}
+.o_boxed_header h4 {
+  color: #999999;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.o_boxed_footer {
+  white-space: nowrap;
+  border-top: 3px solid #555555;
+}
+.o_boxed_footer ul {
+  margin: 4px 0;
+}
+.o_report_layout_boxed {
+  /*Total table*/
+}
+.o_report_layout_boxed #informations {
+  border: 1px solid #555555;
+  padding-top: 10px;
+  margin: 0;
+}
+.o_report_layout_boxed > h2 {
+  text-transform: uppercase;
+}
+.o_report_layout_boxed table {
+  border: 1px solid #555555;
+}
+.o_report_layout_boxed table thead tr th {
+  border-bottom: 3px solid #555555 !important;
+  text-transform: uppercase;
+}
+.o_report_layout_boxed table tbody {
+  color: #555555;
+}
+.o_report_layout_boxed table tbody tr td {
+  border-top: none;
+  border-right: 1px solid #555555;
+}
+.o_report_layout_boxed table tbody tr td:last-child {
+  background-color: #eeeeee;
+}
+.o_report_layout_boxed .row > .col-xs-4 > table td {
+  border-right: none;
+}
+.o_report_layout_boxed .row > .col-xs-4 > table tr:last-child td,
+.o_report_layout_boxed .row > .col-xs-4 > table tr:first-child td {
+  /*we could get rid of this rule if .border-black td would be terminated in report.less*/
+  border-top: none !important;
+}
+.o_report_layout_boxed .row > .col-xs-4 > table tr:first-child td {
+  background-color: transparent;
+}
+.o_report_layout_boxed .row > .col-xs-4 > table tr:last-child td {
+  background-color: #555555;
+  color: #fff;
+}

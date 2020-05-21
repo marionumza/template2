@@ -1,0 +1,82 @@
+
+.o_clean_footer,
+.o_clean_header,
+.o_report_layout_clean {
+  font-family: 'Lato';
+  color: #000;
+}
+.o_clean_header img {
+  max-height: 90px;
+  max-width: 300px;
+}
+.o_clean_footer {
+  margin: 0 3px;
+  border-top: 3px solid #009efb;
+}
+.o_clean_footer h4 {
+  color: #009efb;
+  font-weight: bolder;
+}
+.o_clean_footer .pagenumber {
+  width: 35px;
+  height: 35px;
+  border: 3px solid #009efb;
+  background-color: #009efb;
+  color: white;
+  padding-top: 6px;
+  text-align: center;
+}
+.o_report_layout_clean {
+  /*Total table*/
+}
+.o_report_layout_clean h1,
+.o_report_layout_clean h2,
+.o_report_layout_clean h3 {
+  color: #009efb;
+  font-weight: bolder;
+}
+.o_report_layout_clean strong {
+  color: #009efb;
+}
+.o_report_layout_clean table thead {
+  color: #009efb;
+}
+.o_report_layout_clean table thead tr th {
+  text-align: left !important;
+  border-top: 3px solid #009efb !important;
+  text-transform: uppercase;
+}
+.o_report_layout_clean table thead tr th:last-child {
+  text-align: right !important;
+}
+.o_report_layout_clean table thead tr th:first-child {
+  width: 48%;
+}
+.o_report_layout_clean table tbody {
+  color: #000;
+}
+.o_report_layout_clean table tbody tr:first-child td {
+  border-top: none;
+}
+.o_report_layout_clean table tbody tr:last-child td {
+  border-bottom: 3px solid #009efb;
+}
+.o_report_layout_clean table tbody tr td {
+  padding: 15px 5px;
+  text-align: left !important;
+}
+.o_report_layout_clean table tbody tr td:last-child {
+  text-align: right !important;
+}
+.o_report_layout_clean .row > .col-xs-4 {
+  width: 43%;
+  position: relative;
+  top: -20px;
+}
+.o_report_layout_clean .row > .col-xs-4 > table tr:last-child td {
+  border-top: 1px solid #eeeeee !important;
+}
+.o_report_layout_clean .row > .col-xs-4 > table tr:first-child td {
+  /*we could get rid of this rule if .border-black td would be terminated in report.less*/
+  border-top: none !important;
+}

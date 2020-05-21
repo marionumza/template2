@@ -1,0 +1,91 @@
+
+/* CUSTOMIZE THEME - MODAL */
+#theme_customize_backend {
+  /* Muddy Rainbow */
+  /* Dark Nostalgia */
+  /* Warm Sunset */
+  /* Peaches And Plums */
+  /* Lapine */
+  /* Sunset Dunes */
+}
+#theme_customize_backend .backend_theme_customizer_content {
+  background-color: #333333;
+  padding: 10px;
+  width: 220px;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box input[type="radio"] {
+  display: none;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box input[type="radio"] + label {
+  cursor: pointer;
+  display: block;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box input[type="radio"] + label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box input[type="radio"]:checked + label {
+  border: 3px solid #d1d5c8;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box .color_box_header {
+  color: #d1d5c8;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box .color_box_content {
+  display: flex;
+}
+#theme_customize_backend .backend_theme_customizer_content .color_box .color_box_content .color_radio {
+  padding: 4px;
+}
+#theme_customize_backend .backend_theme_customizer_content .font_box .font_box_header {
+  color: #d1d5c8;
+}
+#theme_customize_backend .backend_theme_customizer_content .font_box .font_box_content .font_radio {
+  padding: 0 5px;
+  color: #d1d5c8;
+  display: inline-block;
+  width: 45%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#theme_customize_backend .backend_theme_customizer_content .font_box .font_box_content .font_radio > * {
+  cursor: pointer;
+}
+#theme_customize_backend .backend_theme_customizer_content .font_box .font_box_content .font_radio:hover,
+#theme_customize_backend .backend_theme_customizer_content .font_box .font_box_content .font_radio:focus {
+  color: #ffffff;
+}
+#theme_customize_backend .muddy-rainbow-primary {
+  background-color: #009efb;
+}
+#theme_customize_backend .dark-nostalgia-primary {
+  background-color: #a16358;
+}
+#theme_customize_backend .warm-sunset-primary {
+  background-color: #ff9300;
+}
+#theme_customize_backend .peaches-plums-primary {
+  background-color: #657248;
+}
+#theme_customize_backend .lapine-primary {
+  background-color: #784418;
+}
+#theme_customize_backend .sunset-dunes-primary {
+  background-color: #dd5d32;
+}
+#theme_customize_backend .dropdown-menu {
+  padding: 0;
+}
+.f_color_palette_loading {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1060;
+}

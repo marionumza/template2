@@ -1,0 +1,46 @@
+
+.o_control_panel > .o_cp_searchview .o_searchview {
+  border: none;
+  background-color: transparent;
+}
+.o_control_panel > .o_cp_searchview .o_searchview > .o_searchview_facet > .o_searchview_facet_label {
+  color: #657248;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.o_control_panel > .o_cp_searchview .o_searchview > .o_searchview_facet > .o_facet_values {
+  background-color: #ffffff;
+}
+.o_control_panel > .o_cp_searchview .o_searchview > .o_searchview_input {
+  border-bottom: 1px solid #4c4c4c;
+  background-color: transparent;
+}
+.o_control_panel > .o_cp_right .o_cp_switch_buttons .btn {
+  color: #4c4c4c;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 3px 6px;
+}
+.o_control_panel > .o_cp_right .o_cp_switch_buttons .btn.active {
+  color: #657248;
+}
+.o_control_panel > .o_cp_right > .o_cp_pager .btn {
+  color: #657248;
+  background-color: transparent;
+}
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_hidden_input_file .o_form_binary_form span {
+  color: #657248;
+}
+@media (max-width: 767px) {
+  .o_control_panel > .o_cp_searchview,
+  .o_control_panel > .breadcrumb,
+  .o_control_panel > .o_cp_left,
+  .o_control_panel > .o_cp_right {
+    width: 100%;
+  }
+  .o_control_panel .o_cp_left .o_cp_sidebar ul.dropdown-menu {
+    left: unset;
+    right: 0;
+  }
+}
