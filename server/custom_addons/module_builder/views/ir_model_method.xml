@@ -1,0 +1,30 @@
+<flectra>
+    <record model="ir.ui.view" id="builder_ir_model_method_form_view">
+        <field name="name">module.builder.ir.model.method.form</field>
+        <field name="model">module.builder.ir.model.method</field>
+        <field name="arch" type="xml">
+            <form string="Model Methods">
+                <group>
+                    <field name="model_id" invisible="1"/>
+                    <group>
+                        <field name="type"/>
+                        <field name="field_ids"
+                               widget="many2many_tags"
+                               domain="[('model_id', '=', model_id)]"
+                               attrs="{'invisible': [
+                               ('type', 'not in', ['onchange', 'constraint']),
+                               ('use_cache', '=', False)],}"/>
+                    </group>
+                    <group>
+                        <field name="name"/>
+                        <field name="arguments"
+                               attrs="{'invisible': [
+                               ['type', 'not in', ['sm', 'si','multi']]], }"/>
+                        <field name="use_cache" attrs="{'invisible':
+                        [['type', 'not in', ['si']]], }"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+</flectra>

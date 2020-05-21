@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <template id="module_builder_assets_backend" name="Module Builder Assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/less" href="/module_builder/static/src/less/main.less"/>
+                <script type="text/javascript" src="/module_builder/static/src/js/form_controller.js"/>
+                <script type="text/javascript" src="/module_builder/static/src/js/mb_to_vem_communicator.js"/>
+                <script type="text/javascript" src="/module_builder/static/src/js/rainbow_main.js"/>
+                <script type="text/javascript" src="/module_builder/static/src/js/widget.js"/>
+            </xpath>
+        </template>
+    </data>
+</flectra>

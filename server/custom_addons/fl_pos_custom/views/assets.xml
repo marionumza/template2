@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+	<template id="assets" inherit_id="point_of_sale.assets">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/fl_pos_custom/static/src/js/customer.js"/>
+			<script type="text/javascript" src="/fl_pos_custom/static/src/js/db.js"/>
+			<script type="text/javascript" src="/fl_pos_custom/static/src/js/screens.js"/>
+		</xpath>
+	</template>
+</flectra>

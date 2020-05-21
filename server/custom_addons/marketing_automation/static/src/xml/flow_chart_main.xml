@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="marketing_automation.FlowChart">
+        <div id="ma_flowchart">
+            <div class="minimap-controls">
+                <div class="minimap-zoom-in" title="Zoom In">
+                    <i class="fa fa-plus"/>
+                </div>
+                <div class="minimap-zoom-out" title="Zoom Out">
+                    <i class="fa fa-minus"/>
+                </div>
+                <div class="minimap-zoom-reset" title="Zoom Reset">
+                    <i class="fa fa-undo"/>
+                </div>
+                <div class="minimap-zoom-state" title="Zoom State">
+                    <i>1x</i>
+                </div>
+            </div>
+            <div id="minimap"/>
+            <div id="main_container"/>
+        </div>
+    </t>
+
+    <t t-name="marketing_automation.FortuneWheel">
+        <div class="circle-text"/>
+        <ul t-att-class="circle_class">
+            <t t-foreach="list" t-as="l">
+                <li>
+                    <div class="text" t-att-string="l.text">
+                    </div>
+                </li>
+            </t>
+        </ul>
+    </t>
+
+</templates>

@@ -1,0 +1,27 @@
+<flectra>
+    <record model="ir.ui.view" id="builder_ir_model_field_sequence_form_view">
+        <field name="name">ir.model.field.sequence.form</field>
+        <field name="model">ir.model.field.sequence</field>
+        <field name="arch" type="xml">
+            <form string="Model Inherits">
+                <group>
+                    <field name="model_id" invisible="1"/>
+                    <group>
+                        <field name="sequence_id"/>
+                        <field name="m_field_ids"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="builder_ir_model_field_sequence_tree_view">
+        <field name="name">ir.model.field.sequence.tree</field>
+        <field name="model">ir.model.field.sequence</field>
+        <field name="arch" type="xml">
+            <tree string="Model Inherits">
+                <field name="sequence_id"/>
+                <field name="m_field_ids"/>
+            </tree>
+        </field>
+    </record>
+</flectra>

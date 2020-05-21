@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="view_editor_manager.Body">
+        <thead>
+            <tr class="btn-default">
+                <th colspan="4">
+                    <i t-att-class="icon"/>
+                    <span><t t-esc="name"/></span>
+                    <span class="caret"/>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </t>
+    <t t-name="view_editor_manager.searchRenderer">
+        <div class="o_searchview search_view_disabled">
+            <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+            <input class="o_searchview_input" placeholder="Search..." type="text"/>
+        </div>
+        <div class="veditor_search_item table-responsive">
+            <table class="view_editor_search_autocompletion_fields o_list_view table" data-type="autocompletion_fields">
+                <t t-call="view_editor_manager.Body">
+                    <t t-set="icon" t-value="'fa fa-magic'"/>
+                    <t t-set="name" t-value="'Autocompletion Fields'"/>
+                </t>
+            </table>
+        </div>
+        <div class="veditor_search_item table-responsive">
+            <table class="view_editor_search_filters o_list_view table ui-droppable" data-type="filters">
+                <t t-call="view_editor_manager.Body">
+                    <t t-set="icon" t-value="'fa fa-filter'"/>
+                    <t t-set="name" t-value="'Filters'"/>
+                </t>
+            </table>
+        </div>
+        <div class="veditor_search_item table-responsive">
+            <table class="view_editor_search_group_by o_list_view table ui-droppable" data-type="group_by">
+                <t t-call="view_editor_manager.Body">
+                    <t t-set="icon" t-value="'fa fa-bars'"/>
+                    <t t-set="name" t-value="'Group by'"/>
+                </t>
+            </table>
+        </div>
+        <div class="veditor_search_item table-responsive">
+            <table class="view_editor_favourites table">
+                <t t-call="view_editor_manager.Body">
+                    <t t-set="icon" t-value="'fa fa-star'"/>
+                    <t t-set="name" t-value="'Favourites'"/>
+                </t>
+            </table>
+        </div>
+    </t>
+
+</templates>

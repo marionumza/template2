@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="marketing_automation.MailMarketingFields">
+        <form>
+            <div class="form-group" t-if="widget.activity_type == 'send_mail' || widget.activity_type == 'action'">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name"/>
+            </div>
+            <div class="form-group"
+                 t-if="widget.activity_type == 'send_mail' || widget.activity_type == 'action' || widget.activity_type == 'domain_rules'">
+                <label for="model_id">Model:</label>
+                <input type="text" class="form-control" id="model_id"/>
+            </div>
+            <div class="form-group" t-if="widget.activity_type == 'send_mail'">
+                <label for="mass_mailing_id">Mail Template:</label>
+                <input type="text" class="form-control" id="mass_mailing_id"/>
+            </div>
+            <div class="form-group" t-if="widget.activity_type == 'action'">
+                <label for="action">Server Action:</label>
+                <input type="text" class="form-control" id="action"/>
+            </div>
+            <div class="form-group" t-if="widget.activity_type == 'activity_wait'">
+                <div>
+                    <label class="control-label" for="wait_for">Wait For:</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="number" min="1" class="form-control" id="wait_for" value="1"/>
+                </div>
+                <div class="col-xs-4">
+                    <select class="form-control" id="waiting_type">
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hour</option>
+                        <option value="day">Day</option>
+                        <option value="week">Week</option>
+                        <option value="month">Month</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group hidden" t-if="widget.activity_type == 'domain_rules'">
+                <div>
+                    <label class="control-label" for="domain">Domain:</label>
+                </div>
+                <div>
+                    <button class="btn btn-xs btn-primary domain_builder col-md-12">
+                        <i class="fa fa-plus"></i>
+                        Add filter
+                        <input id="domain_value" type="text" class="form-control" readonly=""/>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group hidden mt64 mapping_section" t-if="widget.activity_type == 'domain_rules'">
+
+            </div>
+        </form>
+    </t>
+
+    <t t-name="marketing_automation.mapping_radios">
+        <div>
+            <label class="control-label" for="domain">Map Field:</label>
+        </div>
+        <div>
+            <t t-foreach="f_arr" t-as="f">
+                <input type="radio" name="map" t-att-value="f">
+                    <t t-esc="f"/>
+                </input>
+            </t>
+        </div>
+    </t>
+</templates>

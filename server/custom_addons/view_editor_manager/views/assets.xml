@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <template id="view_editor_assets_backend" name="View Editor Manager Assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+
+            <!-- jquery.fonticonpicker library files -->
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/libs/fontawesome-iconpicker/fontawesome-iconpicker.min.js"/>
+            <link href="/view_editor_manager/static/src/js/libs/fontawesome-iconpicker/fontawesome-iconpicker.min.css"
+                  rel="stylesheet" type="text/css"/>
+
+
+            <link href="/view_editor_manager/static/src/less/view_editor.less"
+                  rel="stylesheet" type="text/less"/>
+
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/systray.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/web_client.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/main.js"/>
+
+
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/views/abstract_view.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/calendar_renderer_inherit.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/form_renderer_inherit.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/list_renderer_inherit.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/virtual_search_view.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/kanban_renderer_inherit.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/renderers/kanban_record_editor_inherit.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/action_manager.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/view_fields_manager.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/view_renderer_engine.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/view_renderers.js"/>
+
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_field_creator.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_add_fields.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_property_initializer.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_property.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_add_button.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/dialog_calendar_editor.js"/>
+            <script type="text/javascript"
+                    src="/view_editor_manager/static/src/js/misc_functions.js"/>
+        </xpath>
+    </template>
+</flectra>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <div id="tree_view_cntrls" t-name="view_editor.tree_view_controllers">
+        <t t-if="widget.element_attrs.tag == 'field'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="field_pos_selection">Position:</label>
+                    <select class="form-control" id="field_pos_selection">
+                        <option value="after">After</option>
+                        <option value="before">Before</option>
+                        <option value="inside">Inside</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_selection">Select Field:</label>
+                    <select class="form-control" id="field_selection">
+                        <option value="existing_field">Existing Field</option>
+                        <option value="new_field">New Field</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="select2_fields">Fields:</label>
+                    <input id="select2_fields" type="text"/>
+                </div>
+            </div>
+        </t>
+        <t t-if="widget.element_attrs.tag == 'page'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="field_pos_selection">Position:</label>
+                    <select class="form-control" id="field_pos_selection">
+                        <option value="after">After</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" class="form-control" required=""/>
+                </div>
+                <div class="form-group">
+                    <label for="string">String:</label>
+                    <input id="string" type="text" class="form-control"/>
+                </div>
+            </div>
+        </t>
+
+        <t t-if="widget.element_attrs.tag == 'filter'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="field_pos_selection">Position:</label>
+                    <select class="form-control" id="field_pos_selection">
+                        <option value="after">After</option>
+                        <option value="before">Before</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" class="form-control" required=""/>
+                </div>
+                <div class="form-group">
+                    <label for="string">String:</label>
+                    <input id="string" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="domain">Domain:</label>
+                    <input id="domain" type="text" class="form-control"/>
+                </div>
+            </div>
+        </t>
+
+    </div>
+</templates>
+

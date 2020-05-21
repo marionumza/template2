@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="sh_res_config_settings_for_smps_adv" model="ir.ui.view">
+        <field name="name">sh.res.config.settings.for.smps.adv</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='sale_management']" position="inside">
+            	<div class="col-xs-12 col-md-12">
+	            	<group string="Advance Sale Order Multi Product Selection">
+	            		<field name="sh_smps_pro_field_ids" widget="many2many_tags" options="{'no_create': True}"/>
+	            		<field name="sh_smps_pro_attr_ids" widget="many2many_tags" options="{'no_create': True}"/>
+	            	</group>
+
+            	</div>
+            </xpath>
+		</field>
+	</record>       
+</flectra>
+                   

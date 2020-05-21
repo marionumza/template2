@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <template id="ma_assets_backend" name="Marketing Automation Assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!--FLOWCHART JS LIB-->
+                <script type="text/javascript" src="/marketing_automation/static/src/js/libs/jquery.flowchart.js"/>
+                <script type="text/javascript" src="/marketing_automation/static/src/js/libs/jquery.panzoom.js"/>
+                <script type="text/javascript" src="/marketing_automation/static/src/js/libs/jquery.mousewheel.min.js"/>
+                <script type="text/javascript"
+                        src="/marketing_automation/static/src/js/libs/jquery-minimap/jquery-minimap.js"/>
+
+                <script type="text/javascript" src="/marketing_automation/static/src/js/flow_chart_main.js"/>
+                <script type="text/javascript" src="/marketing_automation/static/src/js/flow_chart_sidebar.js"/>
+                <script type="text/javascript" src="/marketing_automation/static/src/js/dialog_mail_activity.js"/>
+                <script type="text/javascript" src="/marketing_automation/static/src/js/marketing_automation_dashboard.js"/>
+
+                <link href="/marketing_automation/static/src/less/main.less" rel="stylesheet"
+                      type="text/less"/>
+                <link href="/marketing_automation/static/src/js/libs/jquery.flowchart.css" rel="stylesheet"
+                      type="text/css"/>
+            </xpath>
+        </template>
+    </data>
+</flectra>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_member_activity_form" model="ir.ui.view">
+        <field name="name">member.activity.form</field>
+        <field name="model">member.activity</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Member Activity">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,in_progress,completed,
+                           canceled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="mail_activity_id" required="1"/>
+                            <field name="schedule_date"/>
+                        </group>
+                        <group>
+                            <field name="waiting_type" readonly="1"/>
+                            <field name="marketing_type" readonly="1"/>
+                            <field name="action_type" readonly="1"/>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="rule_id"/>
+                            <field name="marketing_config_id" invisible="0"/>
+                            <field name="model_id"/>
+                            <field name="model_name"/>
+                            <field name="domain"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="child_line" string="Activities">
+                            <field name="child_line" nolabel="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="marketing_type"/>
+                                    <field name="waiting_type"/>
+                                    <field name="schedule_date"/>
+                                    <field name="mass_mailing_id"/>
+                                    <field name="state"/>
+                                    <button name="execute_activity"
+                                            type="object" icon="fa-play"
+                                            attrs="{'invisible': [('state', '=', 'completed')]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="statistics_ids"
+                              string="Mail Statistics">
+                            <field name="statistics_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_member_activity_tree" model="ir.ui.view">
+        <field name="name">member.activity.tree</field>
+        <field name="model">member.activity</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="waiting_type"/>
+                <field name="marketing_type"/>
+                <field name="schedule_date"/>
+                <field name="mass_mailing_id"/>
+                <field name="state"/>
+                <button name="execute_activity" type="object" icon="fa-play"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window"
+            id="act_open_member_activity_view">
+        <field name="name">Member Activity</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">member.activity</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</flectra>

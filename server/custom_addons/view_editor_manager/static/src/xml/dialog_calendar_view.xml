@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="view_editor_manager.calendar_view">
+        <div>
+            <div>
+                <div class="checkbox">
+                    <label for="quick_create">
+                        <input id="quick_add" name="quick_add" type="checkbox"/>
+                        Quick Create
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="start_date">Start Date</label>
+                </div>
+                <div>
+                    <select id="date_start" name="start_date" type="text" class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option t-foreach="widget.ordered_fields" t-as="field"
+                                t-if="field.store and _.contains(['date', 'datetime'], field.type)"
+                                t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="stop_date">Stop Date</label>
+                </div>
+                <div>
+                    <select id="date_stop" name="stop_date" type="text" class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option t-foreach="widget.ordered_fields" t-as="field"
+                                t-if="field.store and _.contains(['date', 'datetime'], field.type)"
+                                t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="delay_field">Delay</label>
+                </div>
+                <div>
+                    <select id="date_delay" name="delay_field" type="text" class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option t-foreach="widget.ordered_fields" t-as="field"
+                                t-if="_.contains(['float', 'integer'], field.type)" t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="color_field">Color</label>
+                </div>
+                <div>
+                    <select id="color" name="color_field" type="text" class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option t-foreach="widget.ordered_fields" t-as="field"
+                                t-if="_.contains(['many2one', 'selection'], field.type)" t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="all_day_field">All Day</label>
+                </div>
+                <div>
+                    <select id="all_day" name="all_day_field" type="text" class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.type === 'boolean'"
+                                t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="default_display_field">Default Display</label>
+                </div>
+                <div>
+                    <select id="mode" name="default_display_field" type="text"
+                            class="group_m2m_select2 form-control">
+                        <option selected=""/>
+                        <option value="day">day</option>
+                        <option value="week">week</option>
+                        <option value="month">month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

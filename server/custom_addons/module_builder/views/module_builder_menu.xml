@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<flectra>
+    <data>
+        <record id="view_module_filter" model="ir.ui.view">
+            <field name="name">module.builder.main.list.select</field>
+            <field name="model">module.builder.main</field>
+            <field name="arch" type="xml">
+                <search string="Search modules">
+                    <field name="name"
+                           filter_domain="['|', '|',
+                           ('summary', 'ilike', self),
+                           ('shortdesc', 'ilike', self),
+                           ('name', 'ilike', self)]" string="Module"/>
+                    <filter name="app" string="Apps" domain="[('application', '=', 1)]"/>
+                    <filter name="extra" string="Extra" domain="[('application', '=', 0)]"/>
+                    <separator/>
+                    <field name="category_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Author" domain="[]" context="{'group_by':'author'}"/>
+                        <filter string="Category" domain="[]" context="{'group_by':'category_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_module_tree" model="ir.actions.act_window">
+            <field name="name">Modules</field>
+            <field name="res_model">module.builder.main</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_module_filter"/>
+            <field name="help" type="html">
+                <p>
+                    <b>No module found!</b>
+                </p>
+                <p>You should try others search criteria.</p>
+            </field>
+        </record>
+
+        <menuitem id="menu_module_builder_root" name="Module Builder" sequence="70"
+                  web_icon="module_builder,static/description/icon.png"/>
+        <menuitem id="menu_module_builder_main" parent="menu_module_builder_root" name="Module Builder" sequence="0"/>
+        <menuitem id="menu_module_builder_tree" parent="menu_module_builder_main" name="Modules" sequence="1"
+                  action="open_module_tree"/>
+        <menuitem id="menu_module_builder_wizard" parent="menu_module_builder_main" name="Build An App" sequence="2"
+                  action="act_builder_ir_action_build_an_app_wizard"/>
+
+    </data>
+</flectra>

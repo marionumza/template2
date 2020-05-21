@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_mail_activity_rules_form" model="ir.ui.view">
+        <field name="name">mail.activity.rules.form</field>
+        <field name="model">mail.activity.rules</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Mail Marketing Rule">
+                <sheet>
+                     <group>
+                        <field name="model_id"/>
+                        <field name="model_name" invisible="1"/>
+                        <field name="domain" widget="domain"
+                               options="{'model': 'model_name'}"/>
+                        <field name="conditional_option"/>
+                        <field name="activity_id"/>
+                        <field name="destination_true_id"/>
+                        <field name="destination_false_id"/>
+                     </group>
+                </sheet>
+            </form>
+            </field>
+    </record>
+
+    <record id="view_mail_activity_form" model="ir.ui.view">
+        <field name="name">mail.marketing.activity.form</field>
+        <field name="model">mail.marketing.activity</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Mail Marketing Activity">
+                <header>
+                    <button name="action_completed" states="new"
+                            string="Completed" type="object"
+                            class="btn-primary"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,in_progress,completed,
+                           canceled"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"
+                         groups="base.group_user">
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-send">
+                            <field name="sent_count" widget="statinfo"
+                                   string="Sent"/>
+                        </button>
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-envelope-open">
+                            <field name="replied_count" widget="statinfo"
+                                   string="Replied"/>
+                        </button>
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-mouse-pointer">
+                            <field name="opened_count" widget="statinfo"
+                                   string="Opened"/>
+                        </button>
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-mouse-pointer">
+                            <field name="clicked_count" widget="statinfo"
+                                   string="Clicked"/>
+                        </button>
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-ban">
+                            <field name="bounced_count" widget="statinfo"
+                                   string="Bounced"/>
+                        </button>
+                        <button name="get_mail_status_statistics" type="object"
+                                class="oe_stat_button" icon="fa-ban">
+                            <field name="exception_count" widget="statinfo"
+                                   string="Exception"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="marketing_config_id" invisible="0"/>
+                            <field name="model_id" invisible="0" required="1"/>
+                            <field name="marketing_type" required="1"/>
+                            <field name="mass_mailing_id" required="1"
+                                   context="{'default_state': 'done', 'default_mailing_model_id': model_id, 'default_marketing_automation': True}"
+                                   domain="[('mailing_model_id', '=', model_id), ('marketing_automation', '=', True)]"
+                                   attrs="{'required': [('marketing_type', '=', 'send_mail')], 'invisible': [('marketing_type', '!=', 'send_mail')]}"/>
+                            <field name="ir_actions_server_id" domain="[('model_id', '=', model_id)]"
+                                   attrs="{'required': [('marketing_type', '=', 'action')], 'invisible': [('marketing_type', '!=', 'action')]}"
+                                   context="{'default_model_id': model_id}"/>
+                            <field name="parent_id" invisible="0"
+                                   domain="[('id', '!=', id), ('id', 'in', parent.mail_activity_line)]"/>
+                            <field name="mail_marketing_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="activity_validity"/>
+                            <label for="activity_validity_time"
+                                   attrs="{'invisible': [('activity_validity', '=', False)]}"/>
+                            <div attrs="{'invisible': [('activity_validity', '=', False)]}">
+                                <field name="activity_validity_time"
+                                       class="oe_inline"/>
+                                <field name="activity_validity_type"
+                                       class="oe_inline"/>
+                            </div>
+                            <field name="action_type"/>
+                            <field name="waiting_id"/>
+                            <label for="wait_for"/>
+                            <div>
+                                <field name="wait_for" class="oe_inline"/>
+                                <field name="waiting_type" class="oe_inline"/>
+                            </div>
+                            <field name="waiting_time"/>
+                            <field name="rule_id"/>
+                            <field name="domain" readonly="1"/>
+                            <field name="conditional_option"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="child_line" string="Activities">
+                            <field name="child_line" nolabel="1"
+                                   context="{'default_model_id': model_id, 'default_parent_id': active_id, 'default_mail_marketing_id': mail_marketing_id}">
+                                <tree create="false" delete="false">
+                                    <field name="name"/>
+                                    <field name="marketing_type"/>
+                                    <field name="wait_for"/>
+                                    <field name="waiting_type"/>
+                                    <field name="parent_id" invisible="1"/>
+                                    <field name="activity_validity"/>
+                                    <field name="activity_validity_time"/>
+                                    <field name="activity_validity_type"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mail_activity_tree" model="ir.ui.view">
+        <field name="name">mail.marketing.activity.tree</field>
+        <field name="model">mail.marketing.activity</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="wait_for"/>
+                <field name="waiting_type"/>
+                <field name="waiting_time"/>
+                <field name="activity_validity"/>
+                <field name="activity_validity_time"/>
+                <field name="activity_validity_type"/>
+                <field name="marketing_type"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_mail_activity_view">
+        <field name="name">Mail Activity</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mail.marketing.activity</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</flectra>

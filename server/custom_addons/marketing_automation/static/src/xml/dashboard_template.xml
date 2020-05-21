@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="MarketingAutomation.dashboard">
+        <div class="o_dashboards">
+            <div class="o_dashboards">
+                <div class="container-fluid marketing-dashboard">
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="MarketingAutomation.marketing_progress">
+        <div class="row marketing-progress">
+            <div class="col-lg-2">
+                <div id="email_sent" class="radial-progress"
+                     t-att-data-percentage="widget.sent_ratio"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Sent</span>
+            </div>
+            <div class="col-lg-2">
+                <div id="email_opened" class="radial-progress"
+                     t-att-data-percentage="widget.opened_ration"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Opened</span>
+            </div>
+            <div class="col-lg-2">
+                <div id="email_clicked" class="radial-progress"
+                     t-att-data-percentage="widget.clicked_ratio"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Clicked</span>
+            </div>
+            <div class="col-lg-2">
+                <div id="email_bounced" class="radial-progress"
+                     t-att-data-percentage="widget.bounced_ratio"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Bounced</span>
+            </div>
+            <div class="col-lg-2">
+                <div id="email_replied" class="radial-progress"
+                     t-att-data-percentage="widget.replied_ratio"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Replied</span>
+            </div>
+            <div class="col-lg-2">
+                <div id="email_exception" class="radial-progress"
+                     t-att-data-percentage="widget.exception_ratio"
+                     data-track-width="12"
+                     data-track-colour="555555"
+                     data-fill-colour="009efb"
+                     data-text-colour="00C0FF"
+                     data-stroke-colour="FFFFFF"
+                     data-stroke-spacing="4">
+                </div>
+                <span>Exception</span>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="MarketingAutomation.line_graph">
+        <div class="row marketing-line-graph">
+            <t t-if="widget.top_performing_email.length || widget.data.length">
+                <div class="col-lg-8">
+                    <svg id="line_chart_mar"></svg>
+                </div>
+                <div class="col-lg-4">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Top Performing
+                                    Emails
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="widget.top_performing_email"
+                           t-as="email">
+                            <tr>
+                                <td style="text-transform: capitalize;">
+                                    <i class="fa fa-envelope"
+                                       aria-hidden="true"/>
+                                    <t t-esc="email.name.split('_').join(' ')"/>
+                                </td>
+                                <td>
+                                    <i class="fa fa-mouse-pointer"
+                                       aria-hidden="true"/>
+                                    <t t-esc="(email.sent * 100 ).toFixed(2) +'%'"/>
+                                </td>
+                                <td>
+                                    <i class="fa fa-envelope-open"
+                                       aria-hidden="true"/>
+                                    <t t-esc="(email.opened * 100).toFixed(2)
+                                +'%'"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="no-data">
+                    <span>No Statistics To Show!</span>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="MarketingAutomation.Filters">
+        <div class="btn-group o_dropdown ">
+            <t t-call="date_filters"/>
+        </div>
+        <div class="btn-group o_dropdown ">
+            <t t-call="campaign_filters"/>
+        </div>
+    </t>
+
+    <t t-name="date_filters">
+        <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-calendar"/>
+            Date Filters
+            <span class="caret"/>
+        </a>
+        <ul class="dropdown-menu o_filters_menu" role="menu">
+            <li class="o_closed_menu"
+                data-filter='custom_filter_date'>
+                <li class="o_foldable_menu o_closed_menu"
+                    data-filter='custom_filter_date'
+                    style='margin-left: 10px; margin-right: 10px;'>
+                    From
+                    <br/>
+                    <label class="custom-date" for="date_from">
+                        Start Date :
+                    </label>
+                    <div class="form-group custom-date">
+                        <div class='o_datepicker '>
+                            <input type='text' class="o_datepicker_input"
+                                   name="date_from"/>
+                            <span class="o_datepicker_button"/>
+                        </div>
+                    </div>
+                    <label class="custom-date" for="date_to">
+                        End Date :
+                    </label>
+                    <div class="form-group custom-date">
+                        <div class='o_datepicker'>
+                            <input type='text' class="o_datepicker_input"
+                                   name="date_to"/>
+                            <span class="o_datepicker_button"/>
+                        </div>
+                    </div>
+                    <button id="custom_date" type="button"
+                            class="btn btn-primary date_filter">
+                        Apply
+                    </button>
+                </li>
+            </li>
+        </ul>
+    </t>
+
+    <t t-name="campaign_filters">
+        <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-envelope"/>
+            Campaign Filters
+            <span class="caret"/>
+        </a>
+        <ul id="camp_filters" class="dropdown-menu o_filters_menu" role="menu">
+            <input type="text" placeholder="Search.." id="search_campaign"
+            />
+            <li title="All" data-id="all" class="js_campaign_filter selected">
+                <a>All</a>
+            </li>
+            <t t-foreach="widget.mail_marketing" t-as="o">
+                <li t-att-title="o.name" t-att-data-id="o.id"
+                    class="js_campaign_filter">
+                    <a>
+                        <t t-esc="o.display_name"/>
+                    </a>
+                </li>
+            </t>
+        </ul>
+    </t>
+</templates>

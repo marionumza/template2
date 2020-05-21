@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="module_builder_ir_model_fields_inherit" model="ir.ui.view">
+        <field name="name">ir.model.form.inherit</field>
+        <field name="model">ir.model</field>
+        <field name="inherit_id" ref="base.view_model_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='base']" position="after">
+                <page name="methods" string="Methods">
+                    <group>
+                        <group>
+                            <field name="want_compute"/>
+                            <field name="cmethod" attrs="{
+                            'required': [('want_compute', '=', True)],
+                            'invisible': [('want_compute','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="want_inverse"/>
+                            <field name="imethod" attrs="{
+                            'required': [('want_inverse', '=', True)],
+                            'invisible': [('want_inverse','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="want_search"/>
+                            <field name="smethod" attrs="{
+                            'required': [('want_search', '=', True)],
+                            'invisible': [('want_search','=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="want_default"/>
+                            <field name="dmethod" attrs="{
+                            'required': [('want_default', '=', True)],
+                            'invisible': [('want_default','=',False)]}"/>
+                        </group>
+                    </group>
+                </page>
+
+            </xpath>
+            <xpath expr="//page[1]" position="after">
+                <page name="model_inheritance" string="Model Inheritance">
+                    <group>
+                        <group string="Rewrite">
+                            <field name="rewrite_create_method"/>
+                            <field name="rewrite_write_method"/>
+                            <field name="rewrite_unlink_method"/>
+                        </group>
+                        <group string="Sequencing">
+                            <field name="allow_sequence"/>
+                            <field name="field_sequence_ids"
+                                   attrs="{'invisible': [('allow_sequence', '=', False)]}"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <field name="module_id" invisible="1"/>
+                        <group string="Inherit">
+                            <field nolabel="1" name="inherit_model_ids">
+                                <tree>
+                                    <field name="other_model_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Inherits">
+                            <field nolabel="1" name="inherits_model_ids" >
+                                <tree>
+                                    <field name="other_model_id"/>
+                                    <field name="field_name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+                <page name="custom_model_methods" string="Add Custom Methods">
+                    <group>
+                        <field name="method_ids" nolabel="1"
+                               context="{'default_model_id': id}">
+                            <tree string="Methods" create="1" edit="1" delete="1">
+                                <field name="name"/>
+                                <field name="type"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+
+            </xpath>
+            <xpath expr="//page[@name='base']/group[1]/group[2]" position="inside">
+                <field name="digits" attrs="{'invisible': [('ttype','not in',['float'])]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</flectra>

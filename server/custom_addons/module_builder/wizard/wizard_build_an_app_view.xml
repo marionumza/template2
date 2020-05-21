@@ -1,0 +1,89 @@
+<flectra>
+    <data>
+        <record model="ir.ui.view" id="build_an_app_wizard_with_step_form">
+            <field name="name">wizard.build.app.form</field>
+            <field name="model">wizard.build.app</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Wizard For Creating An App">
+                    <field invisible="1" name="state"/>
+
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="technical_name"/>
+                    </group>
+
+                    <group states="2">
+                        <field name="app_category"/>
+                    </group>
+
+                    <group states="3">
+                        <field name="app_version"/>
+                        <field name="app_description"
+                               placeholder="Describe your app as best as you can Help everybody understand,What this app does?"/>
+                    </group>
+
+                    <group states="4">
+                        <field name="app_license"/>
+                    </group>
+
+                    <group states="5">
+                        <group>
+                            <field name="app_icon" widget="image"/>
+                        </group>
+                        <group>
+                            <field name="color_text" widget="color"/>
+                            <field name="icon_selection"/>
+                        </group>
+                    </group>
+
+                    <group states="6">
+                        <form>
+                            <field name="p_app_icon" widget="image"
+                                   class="oe_avatar" options="{'size':[90, 90]}"/>
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="p_name"/>
+                                </h1>
+                            </div>
+                            <div class="o_row"/>
+                            <group class="o_group_col_12">
+                                <group>
+                                    <field name="p_author"/>
+                                    <field name="p_technical_name"/>
+                                    <field name="p_app_category"/>
+                                </group>
+                                <group>
+                                    <field name="p_is_app"/>
+                                    <field name="p_app_license"/>
+                                    <field name="p_app_version"/>
+                                </group>
+                                <group class="o_group_col_12">
+                                    <field name="p_app_description"/>
+                                </group>
+                            </group>
+                        </form>
+                    </group>
+
+                    <footer>
+                        <button states="2,3,4,5,6" name="action_prev" string="Previous" type="object"
+                                class="btn-primary"/>
+                        <button states="1,2,3,4,5" name="action_next" string="Next" type="object" class="btn-primary"/>
+                        <button states="2,3,4,5,6" name="action_go_to_first" string="Go to Beginning" type="object"
+                                class="btn-primary"/>
+                        <button states="6" name="create_app" string="Create App" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="oe_link btn-danger" special="cancel"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_builder_ir_action_build_an_app_wizard">
+            <field name="name">Build An App</field>
+            <field name="res_model">wizard.build.app</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</flectra>

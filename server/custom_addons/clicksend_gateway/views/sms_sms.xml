@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<flectra>
+    <data>        
+        <record id="sms_sms_inherited_form_view" model="ir.ui.view">
+            <field name="name">wk.sms.sms.form.inherited</field>
+            <field name="model">sms.sms</field>
+            <field name="inherit_id" ref="sms_notification.send_sms"/>          
+            <field name="arch" type="xml">
+                <field name="to" position="before">
+                    <field name="sms_gateway_config_id" attrs="{'readonly':[('state','in',('sent','delivered'))]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</flectra>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mail_marketing,access_mail_marketing,model_mail_marketing,,1,0,0,0
+access_mail_member,access_mail_member,model_mail_member,,1,0,0,0
+access_member_activity,access_member_activity,model_member_activity,,1,0,0,0
+access_mail_marketing_activity,access_mail_marketing_activity,model_mail_marketing_activity,,1,0,0,0
+access_marketing_config,access_marketing_config,model_marketing_config,,1,0,0,0
+access_marketing_config_line,access_marketing_config_line,model_marketing_config_line,,1,0,0,0
+access_mail_activity_waiting,access_mail_activity_waiting,model_mail_activity_waiting,,1,0,0,0
+access_mail_activity_rules,access_mail_activity_rules,model_mail_activity_rules,,1,0,0,0

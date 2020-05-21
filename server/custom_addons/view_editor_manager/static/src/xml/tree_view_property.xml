@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <div id="tree_view_property" t-name="view_editor.tree_view_properties">
+        <div class="col-md-12">
+            <t t-if="widget.element_attrs.tag == 'field'">
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <input type="checkbox" name="invisible" id="invisible"
+                               t-att-checked="widget.safeGet(widget.field_attributes,'invisible') == '1' ? 'checked' : undefined"/>
+                    </div>
+                    <label for="invisible">
+                        Invisible
+                    </label>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <input type="checkbox" name="required" id="required"
+                               t-att-checked="widget.safeGet(widget.field_attributes,'required') == '1' ? 'checked' : undefined"/>
+                    </div>
+                    <label for="required">
+                        Required
+                    </label>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <input type="checkbox" name="readonly" id="readonly"
+                               t-att-checked="widget.safeGet(widget.field_attributes,'readonly') == '1' ? 'checked' : undefined"/>
+                    </div>
+                    <label for="readonly">
+                        Readonly
+                    </label>
+                </div>
+                <t t-if="widget.element_attrs.field_operation == 'new_field'">
+                    <div class="col-md-6">
+                        <label for="name">
+                            Name
+                        </label>
+                        <input type="text" name="name" id="name" class="form-control"
+                               t-att-value="widget.safeGet(widget.field_attributes,'name')" required=""/>
+                    </div>
+                </t>
+                <div class="col-md-6">
+                    <label for="string">
+                        Label
+                    </label>
+                    <input type="text" name="string" id="string" class="form-control"
+                           t-att-value="widget.safeGet(widget.field_attributes,'string')"/>
+                </div>
+                <div class="col-md-6" t-if="widget.parent.active_view != 'list' ">
+                    <label for="help">
+                        Tool Tip
+                    </label>
+                    <input type="text" name="help" id="help" class="form-control"
+                           t-att-value="widget.safeGet(widget.field_attributes,'help')"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="groups">
+                        Security Group
+                    </label>
+                    <input type="text" name="groups" id="groups" class="form-control"/>
+                </div>
+
+                <t t-if="_.contains(['char','text','date','datetime','boolean','float','html','integer','selection'],widget.safeGet(widget.field_attributes,'type'))">
+                    <div class="col-md-6">
+                        <label for="default">
+                            Default Value
+                        </label>
+                        <input type="text" name="default" id="default" class="form-control"/>
+                    </div>
+                </t>
+                <t t-if="_.contains(['char','text','date','datetime','float','integer','many2many','many2one','one2many'],widget.safeGet(widget.field_attributes,'type'))">
+                    <div class="col-md-6">
+                        <label for="placeholder">
+                            Placeholder
+                        </label>
+                        <input type="text" name="placeholder" id="placeholder"
+                               t-att-value="widget.safeGet(widget.field_attributes,'placeholder')"
+                               class="form-control"/>
+                    </div>
+                </t>
+                <t t-if="_.contains(['many2many','many2one','one2many'],widget.safeGet(widget.field_attributes,'type'))">
+                    <div class="col-md-6">
+                        <label for="domain">
+                            Domain
+                        </label>
+                        <input type="text" name="domain" id="domain"
+                               t-att-value="widget.safeGet(widget.field_attributes,'domain') ? JSON.stringify(widget.safeGet(widget.field_attributes,'domain')) : '' "
+                               class="form-control"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="context">
+                            Context
+                        </label>
+                        <input type="text" name="context" id="context"
+                               t-att-value="widget.safeGet(widget.field_attributes,'context') ? JSON.stringify(widget.safeGet(widget.field_attributes,'context')) : '' "
+                               class="form-control"/>
+                    </div>
+                </t>
+                <div class="col-md-6">
+                    <label for="widget">
+                        Widget
+                    </label>
+                    <input type="text" name="widget" id="widget" class="form-control"/>
+                </div>
+            </t>
+            <t t-if="widget.element_attrs.tag == 'page'">
+                <div class="col-md-6">
+                    <label for="string">
+                        Label
+                    </label>
+                    <input type="text" name="string" id="string" class="form-control"
+                           t-att-value="widget.safeGet(widget.field_attributes,'string')"/>
+                </div>
+            </t>
+            <t t-if="widget.element_attrs.tag == 'filter'">
+                <div class="col-md-6">
+                    <label for="string">
+                        Label
+                    </label>
+                    <input type="text" name="string" id="string" class="form-control"
+                           t-att-value="widget.safeGet(widget.field_attributes,'string')"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="domain">
+                        Domain
+                    </label>
+                    <input type="text" name="domain" id="domain"
+                           t-att-value="widget.safeGet(widget.field_attributes,'domain') ? JSON.stringify(widget.safeGet(widget.field_attributes,'domain')) : '' "
+                           class="form-control"/>
+                </div>
+            </t>
+            <t t-if="widget.element_attrs.type == 'button' || widget.element_attrs.type == 'group'">
+                <div class="col-md-6">
+                    <label for="string">
+                        Label
+                    </label>
+                    <input type="text" name="string" id="string" class="form-control"
+                           t-att-value="widget.safeGet(widget.field_attributes,'string')"/>
+                </div>
+            </t>
+        </div>
+    </div>
+</templates>
+

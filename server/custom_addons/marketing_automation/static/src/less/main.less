@@ -1,0 +1,661 @@
+@grid-lines-color: rgba(75, 75, 75, 0.17);
+
+// Mini Map Controls
+.minimap-controls {
+  position: fixed;
+  width: 55px;
+  height: 150px;
+  bottom: 15px;
+  right: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #AAA;
+  opacity: 0.9;
+  z-index: 1;
+  text-align: center;
+  font-size: 20px;
+
+  .minimap-zoom-state {
+    margin: -8px 0;
+  }
+  .minimap-zoom-in, .minimap-zoom-out, .minimap-zoom-reset {
+    margin: 10px 0;
+    border-bottom: 1px solid #bbc6cc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .minimap-zoom-in:hover, .minimap-zoom-out:hover, .minimap-zoom-reset:hover {
+    color: black;
+  }
+}
+
+#minimap {
+  position: fixed;
+  width: 200px;
+  height: 150px;
+  bottom: 15px;
+  right: 15px;
+  background-color: #EEE;
+  border: 1px solid #AAA;
+  opacity: 0.9;
+  z-index: 1;
+  display: none;
+}
+
+.minimap-node {
+  position: absolute;
+  background-color: rgb(96, 122, 134);
+}
+
+.minimap-viewport {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: rgba(79, 111, 126, 0.4);
+  z-index: 1;
+}
+
+// Main Flow Chart Less
+
+.flowchart-operator-inputs {
+  height: 50%;
+  .flowchart-operator-connector-set {
+    height: 100%;
+    .flowchart-operator-connector {
+      height: 100%;
+      width: 50%;
+      .flowchart-operator-connector-arrow {
+        top: 40px;
+      }
+      .flowchart-operator-connector-small-arrow {
+        top: 45px;
+      }
+    }
+  }
+}
+
+.flowchart-operator-outputs {
+  .flowchart-operator-connector-set {
+    .flowchart-operator-connector {
+      .flowchart-operator-connector-arrow {
+        border-color: transparent;
+        z-index: -1000;
+      }
+    }
+  }
+}
+
+.flowchart-operator {
+  width: 160px !important;
+  height: 100px;
+}
+
+.flowchart-operator-title {
+  padding: 16px !important;
+  white-space: normal !important;
+}
+
+.flowchart-operator-title > span{
+  word-break: break-word;
+}
+
+.flowchart-operator-inputs-outputs {
+  height: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#ma_flowchart {
+  height: inherit;
+  overflow: overflow !important;
+}
+
+.flowchart-container {
+  height: 200%;
+  width: 200%;
+  overflow: auto !important;
+  background: white !important;
+}
+
+.fc-sidebar-controls {
+  bottom: 20px;
+  position: fixed;
+  margin: 5px;
+}
+
+#fc_side_panel {
+  .panel-default {
+    border-radius: 0;
+  }
+}
+
+.fc-panel-heading .fc-accordion-toggle:after {
+  font-family: 'FontAwesome';
+  content: "\f078";
+  float: right;
+}
+
+.fc-panel-heading .fc-accordion-toggle.collapsed:after {
+  content: "\f054";
+}
+
+#fc_side_panel {
+  position: fixed;
+  height: 100%;
+  width: 20%;
+  border-right: 1px solid #a6a6a6;
+  background: #3c424c;
+  z-index: 1;
+}
+
+.fc_drag_act_icon {
+  text-align: center;
+  font-size: 40px;
+  height: 70px;
+  width: 70px;
+  background: #12a034;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+}
+
+.fc_drag_flow_control_icon {
+  text-align: center;
+  font-size: 40px;
+  height: 70px;
+  width: 70px;
+  background: #d41c1c;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+}
+
+.fc_drag_condition_icon {
+  text-align: center;
+  font-size: 50px;
+  height: 70px;
+  width: 70px;
+  background: #d49818;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+}
+
+.fc_drag_act_icon span, .fc_drag_flow_control_icon span {
+  vertical-align: middle;
+  color: white;
+}
+
+.fc_drag_act_text {
+  text-align: center;
+}
+
+.fl-sidebar-disable {
+  pointer-events: none;
+  opacity: 0.5;
+  border: 0 !important;
+}
+
+#ma_flowchart {
+  background-color: transparent;
+  background-image: linear-gradient(0deg,
+  transparent 24%,
+  @grid-lines-color 25%,
+  @grid-lines-color 26%,
+  transparent 27%,
+  transparent 74%,
+  @grid-lines-color 75%,
+  @grid-lines-color 76%,
+  transparent 77%,
+  transparent), linear-gradient(90deg,
+  transparent 24%,
+  @grid-lines-color 25%,
+  @grid-lines-color 26%,
+  transparent 27%,
+  transparent 74%,
+  @grid-lines-color 75%,
+  @grid-lines-color 76%,
+  transparent 77%,
+  transparent
+  );
+  height: 100%;
+  width: 100%;
+  background-size: 30px 30px;
+}
+
+// fortune wheel for 6 activities
+
+@color: #b1dcea, #f3b2a7, #b9ffff, #efef92, #f9daa2, #ffbbff, #ffbbff, #b1dcea, #f3b2a7, #b9ffff,;
+
+.circle-text {
+  position: absolute;
+  top: -60px;
+  left: 130px;
+  text-transform: capitalize;
+  width: max-content;
+  font-weight: bolder;
+}
+
+// fortune wheel for 9 activities
+.circle-9-wheel {
+  position: absolute;
+  padding: 0;
+  margin: 1em auto;
+  width: 90px;
+  height: 87px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  top: -51px;
+  left: 35px;
+
+  li {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+    border: 2px solid white;
+  }
+
+  .text {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    transform: skewY(60deg) rotate(15deg);
+    padding-top: 20px;
+    transition: all ease-in;
+  }
+
+  @iterations: 9;
+  @transforms: 0deg, 20deg, 40deg, 60deg, 80deg, 100deg, 120deg, 140deg, 160deg;
+
+  .mixin-loop (@i) when (@i > 0) {
+    li:nth-child(@{i}) {
+      transform: rotate(extract(@transforms, "@{i}")) skewY(-70deg);
+    }
+    .mixin-loop(@i - 1);
+  }
+
+  .mixin-loop2 (@i) when (@i > 0) {
+    li:nth-child(@{i}) .text {
+      background: #4d4d4d; //extract(@color, "@{i}");
+    }
+    .mixin-loop2(@i - 1);
+  }
+
+  .mixin-loop3 (@i) when (@i > 0) {
+    li:nth-child(@{i}):hover .text {
+      background: darken(extract(@color, "@{i}"), 50%) !important;
+      color: white !important;
+    }
+    .mixin-loop3(@i - 1);
+  }
+
+  .mixin-loop(@iterations);
+  .mixin-loop2(@iterations);
+  .mixin-loop3(@iterations);
+
+}
+
+// fortune wheel for 6 activities
+.circle-6-wheel {
+  position: absolute;
+  padding: 0;
+  margin: 1em auto;
+  width: 65px;
+  height: 63px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  top: -39px;
+  left: 75px;
+
+  li {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+    border: 2px solid white;
+  }
+
+  .text {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    transform: skewY(60deg) rotate(15deg);
+    padding-top: 20px;
+    transition: all ease-in;
+  }
+
+  @iterations: 6;
+  @transforms: 0deg, 30deg, 60deg, 90deg, 120deg, 150deg;
+
+  .mixin-loop (@i) when (@i > 0) {
+    li:nth-child(@{i}) {
+      transform: rotate(extract(@transforms, "@{i}")) skewY(-60deg);
+    }
+    .mixin-loop(@i - 1);
+  }
+
+  .mixin-loop2 (@i) when (@i > 0) {
+    li:nth-child(@{i}) .text {
+      background: #4d4d4d; //extract(@color, "@{i}");
+    }
+    .mixin-loop2(@i - 1);
+  }
+
+  .mixin-loop3 (@i) when (@i > 0) {
+    li:nth-child(@{i}):hover .text {
+      background: darken(extract(@color, "@{i}"), 50%) !important;
+      color: white !important;
+    }
+    .mixin-loop3(@i - 1);
+  }
+
+  .mixin-loop(@iterations);
+  .mixin-loop2(@iterations);
+  .mixin-loop3(@iterations);
+
+}
+
+// fortune wheel for 3 activities
+.circle-3-wheel {
+  position: absolute;
+  padding: 0;
+  margin: 1em auto;
+  width: 65px;
+  height: 63px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  top: -39px;
+  left: 75px;
+
+  li {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+    border: 2px solid white;
+  }
+
+  .text {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    transform: skewY(30deg) rotate(15deg);
+    padding-top: 20px;
+    transition: all ease-in;
+  }
+
+  @iterations: 3;
+  @transforms: 0deg, 60deg, 120deg;
+
+  .mixin-loop (@i) when (@i > 0) {
+    li:nth-child(@{i}) {
+      transform: rotate(extract(@transforms, "@{i}")) skewY(-30deg);
+    }
+    .mixin-loop(@i - 1);
+  }
+
+  .mixin-loop2 (@i) when (@i > 0) {
+    li:nth-child(@{i}) .text {
+      background: extract(@color, "@{i}");
+    }
+    .mixin-loop2(@i - 1);
+  }
+
+  .mixin-loop3 (@i) when (@i > 0) {
+    li:nth-child(@{i}):hover .text {
+      background: darken(extract(@color, "@{i}"), 50%) !important;
+      color: white !important;
+    }
+    .mixin-loop3(@i - 1);
+  }
+
+  .mixin-loop(@iterations);
+  .mixin-loop2(@iterations);
+  .mixin-loop3(@iterations);
+
+}
+
+// fortune wheel for 2 activities
+.circle-2-wheel {
+  position: absolute;
+  padding: 0;
+  margin: 1em auto;
+  width: 85px;
+  height: 82px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  top: -49px;
+  left: 39px;
+
+  li {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+    outline: 2px solid white;
+  }
+
+  .text {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    transform: skewY(0deg) rotate(15deg);
+    padding-top: 20px;
+    transition: all ease-in;
+  }
+
+  @iterations: 2;
+  @transforms: 0deg, 90deg;
+
+  .mixin-loop (@i) when (@i > 0) {
+    li:nth-child(@{i}) {
+      transform: rotate(extract(@transforms, "@{i}")) skewY(0deg);
+    }
+    .mixin-loop(@i - 1);
+  }
+
+  .mixin-loop2 (@i) when (@i > 0) {
+    li:nth-child(@{i}) .text {
+      background: extract(@color, "@{i}");
+    }
+    .mixin-loop2(@i - 1);
+  }
+
+  .mixin-loop3 (@i) when (@i > 0) {
+    li:nth-child(@{i}):hover .text {
+      background: darken(extract(@color, "@{i}"), 50%) !important;
+      color: white !important;
+    }
+    .mixin-loop3(@i - 1);
+  }
+
+  .mixin-loop(@iterations);
+  .mixin-loop2(@iterations);
+  .mixin-loop3(@iterations);
+
+}
+
+// fortune wheel for 1 activity
+.circle-1-wheel {
+  position: absolute;
+  padding: 0;
+  margin: 1em auto;
+  width: 90px;
+  height: 80px;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  top: -48px;
+  left: 26px;
+
+  li {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    transform-origin: 0% 100%;
+  }
+
+  .text {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    transform: skewY(0deg) rotate(15deg);
+    padding-top: 20px;
+    transition: all ease-in;
+  }
+
+  @iterations: 1;
+  @transforms: 0deg, 90deg;
+
+  .mixin-loop (@i) when (@i > 0) {
+    li:nth-child(@{i}) {
+      transform: rotate(extract(@transforms, "@{i}")) skewY(0deg);
+    }
+    .mixin-loop(@i - 1);
+  }
+
+  .mixin-loop2 (@i) when (@i > 0) {
+    li:nth-child(@{i}) .text {
+      background: #4d4d4d /*extract(@color, "@{i}")*/;
+    }
+    .mixin-loop2(@i - 1);
+  }
+
+  .mixin-loop3 (@i) when (@i > 0) {
+    li:nth-child(@{i}):hover .text {
+      background: darken(extract(@color, "@{i}"), 50%) !important;
+      color: white !important;
+    }
+    .mixin-loop3(@i - 1);
+  }
+
+  .mixin-loop(@iterations);
+  .mixin-loop2(@iterations);
+  .mixin-loop3(@iterations);
+
+}
+
+// nav designs
+#fc_side_panel {
+  .nav-tabs > li > a {
+    border-radius: 0 !important;
+    color: #d8d8d8 !important;
+  }
+
+  .nav-tabs > li.active > a {
+    color: #fdfdfd !important;
+    background-color: #3c424c !important;
+  }
+
+  .nav-tabs > li.active > a:hover {
+    border: 1px solid #ddd !important;
+    border-bottom-color: transparent !important;
+  }
+  .nav > li.active > a:hover {
+    background-color: #3c424c !important;
+  }
+
+  .nav-tabs > li > a:hover {
+    border-color: #4b4e52 #4b4e52 #ddd !important;
+  }
+  .nav > li > a:hover {
+    background-color: #4b4e52 !important;
+  }
+
+  #config .config-controls {
+    margin-top: 30px;
+    overflow-y: scroll;
+    height: 450px;
+    label {
+      color: #fdfdfd;
+    }
+    input {
+      border-radius: 0 !important;
+    }
+  }
+}
+
+// Dashboard Css
+
+.marketing-dashboard {
+  padding: 50px;
+
+  .row {
+    background-color: white;
+    box-shadow: 1px 1px 4px #667;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .marketing-progress {
+    .col-lg-2 {
+      text-align: center;
+      font-weight: bolder;
+    }
+  }
+
+  .marketing-line-graph {
+    margin-top: 32px;
+    .col-lg-8 {
+      border-right: 2px ridge;
+      svg {
+        overflow: visible !important;
+      }
+    }
+    .col-lg-4 {
+      .table {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .x.axis path {
+    display: none;
+  }
+
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+
+  .no-data {
+    text-align: center;
+    font-size: 20px;
+    height: 50px;
+    display: grid;
+    margin-top: 14px;
+  }
+}

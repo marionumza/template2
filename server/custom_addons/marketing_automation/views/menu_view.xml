@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="act_marketing_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">marketing_dashboard</field>
+    </record>
+
+    <menuitem name="Dashboard" id="marketing_campaign_menu_root"
+              action="act_marketing_dashboard"
+              parent="mass_mailing.mass_mailing_menu_root" sequence="-1"
+    />
+
+    <menuitem name="Marketing Campaign" id="mail_marketing_menu"
+              action="act_open_mail_marketing_view"
+              parent="mass_mailing.mass_mailing_menu" sequence="2"/>
+
+
+    <menuitem name="Marketing Model" id="mass_marketing_config"
+              action="act_open_marketing_config_view"
+              parent="mass_mailing.menu_mass_mailing_configuration"
+              sequence="100"/>
+
+</flectra>

@@ -1,0 +1,40 @@
+<flectra>
+    <data>
+        <record model="ir.ui.view" id="wizard_view_updater_form">
+            <field name="name">view.updater.wizard.form</field>
+            <field name="model">view.updater.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="View Updater">
+                    <group>
+                        <group string="Views To Update">
+                            <field name="model_id"
+                                   options="{'no_quick_create': True, 'no_create_edit' : True,'no_open' : True}"/>
+
+                        </group>
+                        <group string="Chatter Update">
+                            <field name="update_chatter"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="arch_selection" widget="many2many_tags"
+                                   options="{'no_quick_create': True, 'no_create_edit' : True,'no_open' : True}"
+                                   attrs="{'invisible':[('model_id','=',False)]}"
+                            />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="update_view" string="Update View" type="object"/>
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_builder_update_view_wizard">
+            <field name="name">View Updater</field>
+            <field name="res_model">view.updater.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</flectra>

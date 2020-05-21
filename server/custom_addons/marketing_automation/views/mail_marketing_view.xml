@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="flow_chart_main_action" model="ir.actions.client">
+        <field name="name">Activity Builder</field>
+        <field name="tag">flow_chart_main</field>
+    </record>
+
+    <record id="view_mail_marketing_form" model="ir.ui.view">
+        <field name="name">mail.marketing.form</field>
+        <field name="model">mail.marketing</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Mail Marketing">
+                <header>
+                    <button name="get_started"
+                            string="Get Started" states="new"
+                            type="object" class="oe_highlight"/>
+                    <button name="create_marketing_members"
+                            string="Execute Activities"
+                            states="draft,in_progress"
+                            type="object" class="oe_highlight"/>
+                    <button name="create_member_activities"
+                            string="Update Activities"
+                            states="draft,in_progress"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('need_update', '=', False)]}"/>
+                    <button name="execute_marketing_activity"
+                            string="Run Manually" states="draft,in_progress"
+                            context="{'mail_marketing_id': active_id}"
+                            type="object" class="oe_highlight"/>
+                    <button name="action_completed"
+                            string="Completed" states="in_progress"
+                            type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,draft,in_progress,
+                           completed"/>
+                </header>
+                <div class="text-center"
+                     attrs="{'invisible': [('need_update', '=', False)]}">
+                    <p>Activities are updated. Please click above "Update
+                        Activity" button to update members activity
+                    </p>
+                </div>
+                <sheet>
+                    <div>
+                        <button string="Activity Builder" type="action"
+                                name="%(flow_chart_main_action)d"
+                                class="oe_highlight" attrs="{'invisible':[('state','=', 'completed')]}" />
+                    </div>
+                    <div class="oe_button_box" name="button_box"
+                         groups="base.group_user">
+                        <button name="get_members" type="object"
+                                class="oe_stat_button" icon="fa-users"
+                                attrs="{'invisible':[('member_count','=', 0)]}">
+                            <field name="member_count" widget="statinfo"
+                                   string="Members"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="need_update" invisible="1"/>
+                        <field name="name" required="1"/>
+                        <label string="Target Model"/>
+                        <div>
+                            <field name="marketing_config_id" required="1"/>
+                            <field name="model_id" invisible="1"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="domain" widget="domain"
+                                   options="{'model': 'model_name'}"
+                                   context="{'search_default_not_opt_out':1}"/>
+                            <field name="rule_id" invisible="1"/>
+                        </div>
+                    </group>
+                    <notebook>
+                        <page name="mail_activities"
+                              string="Mail Activities">
+                            <field name="mail_activity_line" nolabel="1"
+                                   help="This line is created from activity
+                                   builder by building flow."
+                                   context="{'default_model_id': model_id}">
+                                <tree create="false" delete="false">
+                                    <field name="name"/>
+                                    <field name="marketing_type"/>
+                                    <field name="wait_for"/>
+                                    <field name="waiting_type"/>
+                                    <field name="activity_validity"/>
+                                    <field name="activity_validity_time"/>
+                                    <field name="activity_validity_type"/>
+                                    <field name="parent_id" invisible="1"
+                                           domain="[('id', '!=', id), ('id', 'in', parent.mail_activity_line)]"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mail_marketing_tree" model="ir.ui.view">
+        <field name="name">mail.marketing.tree</field>
+        <field name="model">mail.marketing</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="model_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mail_marketing_kanban" model="ir.ui.view">
+        <field name="name">mail.marketing.kanban</field>
+        <field name="model">mail.marketing</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click o_kanban_get_form">
+                            <div class="row">
+                                <div class="col-xs-12"
+                                     style="text-align:center; padding-bottom: 15px; font-size: 15px;">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div class="col-xs-12"
+                                     style="text-align: center; padding-left: 15px; font-size: 18px;">
+                                    <strong>
+                                       Total Memebers :
+                                        <field name="member_count"/>
+                                    </strong>
+                                </div>
+                                <div class="col-xs-12">
+                                    <table align="center">
+                                        <tr>
+                                            <td
+                                                    style="border-right: 1px solid yellowgreen; text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span style="font-size: 25px;">
+                                                    <field name="sent_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Recipients</strong>
+                                                </span>
+                                            </td>
+                                            <td style="border-right: 1px solid yellowgreen; text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span style="font-size: 25px;">
+                                                    <field name="opened_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Total Opens
+                                                    </strong>
+                                                </span>
+                                            </td>
+                                            <td style="text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span style="font-size: 25px;">
+                                                    <field name="bounced_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Bounces</strong>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-right: 1px solid yellowgreen; text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span style="font-size: 25px;">
+                                                    <field name="replied_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Replies</strong>
+                                                </span>
+
+                                            </td>
+                                            <td style="border-right: 1px solid yellowgreen; text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span
+                                                        style="font-size: 25px;">
+                                                    <field name="clicked_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Clicks</strong>
+                                                </span>
+                                            </td>
+                                            <td style="text-align: center; padding-left: 15px; padding-right: 15px;">
+                                                <span style="font-size: 25px;">
+                                                    <field name="exception_count"
+                                                           string="Contact"/>
+                                                </span>
+                                                <br/>
+                                                <span>
+                                                    <strong>Exceptions</strong>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_mail_marketing_search" model="ir.ui.view">
+        <field name="name">mail.marketing.search</field>
+        <field name="model">mail.marketing</field>
+        <field name="arch" type="xml">
+            <search string="Marketing Automation">
+                <group expand="1" string="Group By">
+                    <filter string="Status" name="status"
+                            context="{'group_by':'state'}"/>
+                    <filter string="Model" name="model_id"
+                            context="{'group_by':'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_mail_marketing_view">
+        <field name="name">Marketing Campaign</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mail.marketing</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</flectra>

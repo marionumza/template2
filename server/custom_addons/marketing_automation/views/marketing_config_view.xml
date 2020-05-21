@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_marketing_config_form" model="ir.ui.view">
+        <field name="name">marketing.config.form</field>
+        <field name="model">marketing.config</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Marketing Config">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="model_id" required="1"/>
+                            <field name="field_id" required="1"/>
+                        </group>
+                    </group>
+                    <group string="Domain Configuration">
+                        <field name="child_line" nolabel="1">
+                            <tree>
+                                <field name="model_id"/>
+                                <field name="field_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_marketing_config_tree" model="ir.ui.view">
+        <field name="name">marketing.config.tree</field>
+        <field name="model">marketing.config</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model_id"/>
+                <field name="field_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="act_open_marketing_config_view">
+        <field name="name">Marketing Model</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">marketing.config</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</flectra>

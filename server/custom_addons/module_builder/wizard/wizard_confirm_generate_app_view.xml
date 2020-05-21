@@ -1,0 +1,25 @@
+<flectra>
+    <data>
+        <record model="ir.ui.view" id="app_confirm_wizard">
+            <field name="name">wizard.app.confirm.form</field>
+            <field name="model">wizard.app.confirm</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Wizard For Creating An App">
+                    <p>Do You want to create model's for your app?</p>
+                </form>
+                <footer>
+                    <button name="act_confirm_yes" type="object" class="btn-success" string="Yes"/>
+                    <button name="act_confirm_no" type="object" class="btn-primary" string="No"/>
+                </footer>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_builder_ir_action_app_confirm_wizard">
+            <field name="name">Create Model</field>
+            <field name="res_model">wizard.app.confirm</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</flectra>

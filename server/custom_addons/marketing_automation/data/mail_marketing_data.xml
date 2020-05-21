@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data noupdate="1">
+        <record id="ir_cron_create_members" model="ir.cron">
+            <field name="name">Marketing Automation: Create Members</field>
+            <field name="model_id"
+                   ref="marketing_automation.model_mail_marketing"/>
+            <field name="state">code</field>
+            <field name="code">model._confirm_mail_marketing()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
+        </record>
+
+        <record id="ir_cron_create_member_activities" model="ir.cron">
+            <field name="name">Marketing Automation: Execute Activities</field>
+            <field name="model_id"
+                   ref="marketing_automation.model_mail_marketing"/>
+            <field name="state">code</field>
+            <field name="code">model.execute_marketing_activity_mails()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
+        </record>
+
+        <record id="marketing_model_config" model="marketing.config">
+            <field name="model_id"
+                   ref="mass_mailing.model_mail_mass_mailing_list"/>
+            <field name="field_id"
+                   ref="mass_mailing.field_mail_mass_mailing_list_id"/>
+        </record>
+
+        <!-- Stages subtype -->
+        <record id="ma_stages_n" model="mail.message.subtype">
+            <field name="name">New</field>
+        </record>
+
+        <record id="ma_stages_d" model="mail.message.subtype">
+            <field name="name">Draft</field>
+        </record>
+
+        <record id="ma_stages_p" model="mail.message.subtype">
+            <field name="name">In Progress</field>
+        </record>
+
+        <record id="ma_stages_c" model="mail.message.subtype">
+            <field name="name">Completed</field>
+        </record>
+    </data>
+</flectra>

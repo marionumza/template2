@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="view_editor_manager.activator">
+        <li class="view_editor_manager_tray" id="view_editor_toggle">
+            <a href="#" title="Toggle View Editor" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="mech fa fa-cog" aria-hidden="true"/>
+            </a>
+            <ul class="view_tray_icons dropdown-menu fade"
+                 role="menu">
+               <ul class="tray_container_main">
+                  <li class="view_items" >
+                     <a class="bg_icon_container" view="kanban">
+                         <span class="bg_icon" >
+                             <i class="fa fa-lg fa-th-large"/>
+                         </span>
+                        <span class="icon_text">Kanban View</span>
+                     </a>
+                  </li>
+                  <li class="view_items">
+                     <a class="bg_icon_container" view="list">
+                         <span class="bg_icon " >
+                             <i class="fa fa-lg fa-list-ul"/>
+                         </span>
+                        <span class="icon_text">List View</span>
+                     </a>
+                  </li>
+                   <li class="view_items" >
+                     <a class="bg_icon_container" view="form">
+                        <span class="bg_icon">
+                            <i class="fa fa-lg fa-wpforms" />
+                        </span>
+                        <span class="icon_text">Form View</span>
+                     </a>
+                  </li>
+                  <li class="view_items">
+                     <a class="bg_icon_container" view="search">
+                        <span class="bg_icon">
+                              <i class="fa fa-lg fa-search-plus"/>
+                        </span>
+                        <span class="icon_text">Search View</span>
+                     </a>
+                  </li>
+                   <li class="view_items">
+                     <a class="bg_icon_container" view="calendar">
+                        <span class="bg_icon">
+                              <i class="fa fa-lg fa-calendar"/>
+                        </span>
+                        <span class="icon_text">Calendar View</span>
+                     </a>
+                  </li>
+
+               </ul>
+
+            </ul>
+        </li>
+    </t>
+
+    <t t-name="view_editor_manager.navbar">
+        <div class="view-editor-nav-container">
+            <button class="btn btn-sm btn-gamma pull-right mr16" id="view_edit_exit" style="margin-top: 12px">
+                Exit
+            </button>
+        </div>
+    </t>
+</templates>

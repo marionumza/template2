@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<flectra>
+    <data>
+        <record id="view_builder_data_file_filter" model="ir.ui.view">
+            <field name="name">module.builder.data.file.select</field>
+            <field name="model">module.builder.data.file</field>
+            <field name="arch" type="xml">
+                <search string="Search files">
+                    <field name="filename"
+                           filter_domain="['|', ('filename', 'ilike', self),
+                            ('path', 'ilike', self)]"
+                           string="File Name"/>
+                    <field name="extension"
+                           filter_domain="[('extension', '=', '.' + self)]" string="Ext"/>
+                    <field name="path"
+                           filter_domain="[('path', 'ilike', self)]" string="Path"/>
+                    <separator/>
+                    <filter string="Image" domain="[('is_image', '=', True)]"/>
+                    <filter string="Not Image" domain="[('is_image', '=', False)]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Content Type" domain="[]" context="{'group_by':'ctype'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="builder_data_file_tree_view">
+            <field name="name">module.builder.data.file.tree</field>
+            <field name="model">module.builder.data.file</field>
+            <field name="arch" type="xml">
+                <tree string="Data File">
+                    <field name="ctype"/>
+                    <field name="path"/>
+                    <field name="size"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="builder_data_file_form_view">
+            <field name="name">module.builder.data.file.form</field>
+            <field name="model">module.builder.data.file</field>
+            <field name="arch" type="xml">
+                <form string="Data File">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="path"/>
+                                <field name="content" filename="filename"/>
+                            </group>
+                            <group/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="builder_data_file_kanban" model="ir.ui.view">
+            <field name="name">module.builder.data.file.kanban</field>
+            <field name="model">module.builder.data.file</field>
+            <field name="arch" type="xml">
+                <kanban create="true" quick_create="false" delete="true">
+                    <field name="filename"/>
+                    <field name="icon"/>
+                    <field name="ctype"/>
+                    <field name="is_image"/>
+                    <field name="size"/>
+                    <field name="extension"/>
+                    <field name="id"/>
+                    <field name="path"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="builder_image_kanban">
+                                <div class="oe_attachment extended">
+                                    <div class="buttons">
+                                        <span>
+                                            <a type="delete" title="Delete">
+                                                <span class='oe_e' style="line-height: 19%;"/>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <a type="open">
+                                            <img t-if="record.is_image.raw_value"
+                                                 t-att-src="kanban_image('module.builder.data.file', 'image_small', record.id.raw_value)"
+                                                 class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                        </a>
+                                    </div>
+                                    <div class="oe_name" t-att-title="record.path.raw_value">
+                                        <a type="open" class="oe_small_name">
+                                            <field name="path"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</flectra>

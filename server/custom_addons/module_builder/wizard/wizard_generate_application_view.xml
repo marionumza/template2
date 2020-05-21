@@ -1,0 +1,68 @@
+<flectra>
+    <data>
+        <record model="ir.ui.view" id="wizard_with_step_form">
+            <field name="name">wizard.generate.app.form</field>
+            <field name="model">wizard.generate.app</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Wizard Generate App">
+                    <field invisible="1" name="state"/>
+                    <field name="view_name" invisible="1"/>
+                    <field name="action_name" invisible="1"/>
+                    <field name="menu_name" invisible="1"/>
+                    <field name="has_name_field_def" invisible="1"/>
+
+                    <group states="step1" string="Model Details">
+                        <field name="model_type"/>
+                        <field name="model_id" options="{'no_quick_create': True, 'no_create_edit' : True}"
+                               attrs="{'invisible':[('model_type', '!=', 'existing_model')],
+                               'required':[('model_type', '!=', 'new_model')]}"/>
+                        <field name="transient" attrs="{'invisible':['|',('model_type', '!=', 'new_model')]}"/>
+                        <field name="model" attrs="{'invisible':[('model_type', '!=', 'new_model')],
+                        'required':[('model_type', '!=', 'existing_model')]}"/>
+
+                        <field name="name" attrs="{'invisible':[('model_type', '!=', 'new_model')],
+                        'required':[('model_type', '!=', 'existing_model')]}"/>
+                    </group>
+
+                    <group states="step2">
+                        <group string="Default Fields &amp; Chatter">
+                            <field name="name_field_def" attrs="{'invisible':[('has_name_field_def', '=', True)]}"/>
+                            <field name="want_chatter" attrs="{'invisible':[('transient', '=', True)]}"/>
+                            <field name="inherit_model" attrs="{'invisible':[('transient', '=', True)]}" widget="many2many_tags"/>
+                        </group>
+                        <group string="Add Views">
+                            <field name="want_search_view"/>
+                            <field name="want_kanban_view"/>
+                            <field name="want_calendar_view"/>
+                            <field name="want_graph_view"/>
+                            <field name="want_pivot_view"/>
+                        </group>
+                    </group>
+                    <group states="step2" string="Model Fields">
+                        <field name="field_ids"
+                               domain="[('model_id', '=', model_id)]" />
+                    </group>
+
+                    <footer states="step1">
+                        <button name="action_next" string="Next" type="object"/>
+                        <button string="Cancel" special="cancel" class="oe_link rollback_model_for_me"/>
+                    </footer>
+
+                    <footer states="step2">
+                        <button name="action_previous" string="Previous" type="object"/>
+                        <button name="generate_bunch_of_app" string="Generate App" type="object"/>
+                        <button string="Cancel" special="cancel" class="oe_link rollback_model_for_me"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_builder_ir_action_lookup_wizard">
+            <field name="name">Add A Model</field>
+            <field name="res_model">wizard.generate.app</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</flectra>

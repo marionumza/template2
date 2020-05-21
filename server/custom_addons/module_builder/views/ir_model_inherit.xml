@@ -1,0 +1,30 @@
+<flectra>
+    <record model="ir.ui.view" id="builder_ir_model_inherit_form_view">
+        <field name="name">module.builder.ir.model.inherit.form</field>
+        <field name="model">module.builder.ir.model.inherit</field>
+        <field name="arch" type="xml">
+            <form string="Model Inherit">
+                <group>
+                    <group>
+                        <field name="other_model_id"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="builder_ir_model_inherits_form_view">
+        <field name="name">module.builder.ir.model.inherits.form</field>
+        <field name="model">module.builder.ir.model.inherits</field>
+        <field name="arch" type="xml">
+            <form string="Model Inherits">
+                <group>
+                    <group>
+                        <field name="other_model_id"/>
+                        <field name="field_name"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+</flectra>
