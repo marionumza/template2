@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//PYVOBJECT//NONSGML Version 1//EN
+BEGIN:VEVENT
+UID:20200521T194717Z - 71561@multitouchpro.com
+DTSTART:20200521T201500Z
+DTEND:20200521T204000Z
+ATTENDEE:MAILTO:amy@agean.com
+ATTENDEE:MAILTO:zack@agean.com
+ATTENDEE:MAILTO:sales@agean.com
+ATTENDEE:MAILTO:dave@coreintegrated.com
+ATTENDEE:MAILTO:mikep@agean.com
+ATTENDEE:MAILTO:greg@coreintegrated.com
+CREATED:20200521T194717Z
+LOCATION:meet.google.com/owf-smsp-mdk
+SUMMARY:follow up Meeting from last week w/  Agean Bath & Spa (quickbooks a
+ pi\, Chatbot\, Updating forms\, new features))
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:10 minutes - popup
+TRIGGER;related=START:PT10M
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:30 minutes - email
+TRIGGER;related=START:PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
